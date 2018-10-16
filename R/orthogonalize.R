@@ -20,7 +20,7 @@ orthogonalize <- function(formula, data, group = NULL) {
     X <- model.matrix(mt, mf)
     group <- as.integer(group)
     ##
-    if(!is.null(group))
+    if(length(group))
         out <- get_group_residuals(X, y, group)
     else
         out <- get_residuals(X, y)

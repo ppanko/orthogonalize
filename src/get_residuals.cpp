@@ -3,9 +3,9 @@
 #include <Rcpp.h>
 
 // [[Rcpp::export]]
-arma::colvec get_residuals( const arma::mat& X, const arma::colvec& y ) {
-  arma::colvec coef = solve(X, y);
-  arma::colvec resid = y - X*coef;
+arma::vec get_residuals( const arma::mat& X, const arma::colvec& y ) {
+  arma::vec coef = solve(X, y);
+  arma::vec resid = y - X*coef;
   return resid + coef[0]; // 
 }
 

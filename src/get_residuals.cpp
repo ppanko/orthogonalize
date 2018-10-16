@@ -10,9 +10,9 @@ arma::colvec get_residuals( const arma::mat& X, const arma::colvec& y ) {
 }
 
 // [[Rcpp::export]]
-arma::colvec get_group_residuals( const arma::mat& X, const arma::vec& y, const arma::ivec& GroupVec ) {
+arma::vec get_group_residuals( const arma::mat& X, const arma::vec& y, const arma::ivec& GroupVec ) {
 
-  arma::colvec ResidVec(y.size());
+  arma::vec ResidVec(y.size());
   arma::ivec UnqGroup = unique(GroupVec);
 
   for(int j = 0; j < UnqGroup.size(); j++) {// Loop through input 

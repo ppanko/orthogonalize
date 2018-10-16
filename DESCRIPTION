@@ -1,0 +1,12 @@
+Package: orthogonalize
+Type: Package
+Title: Simple orthogonalization 
+Version: 1.0
+Date: 2018-10-16
+Author: Pavel Panko
+Maintainer: Pavel Panko <pavel.panko@ttu.edu>
+Description: Residualize an outcome variable based on a predictor set. 
+License: GPL-3
+Imports: Rcpp (>= 0.12.18)
+LinkingTo: Rcpp, RcppArmadillo
+RoxygenNote: 6.1.0

@@ -21,7 +21,8 @@ orthogonalize <- function(formula, data, group = NULL) {
     group <- as.integer(group)
     ##
     if(!is.null(group))
-        get_group_residuals(X, y, group)
+        out <- get_group_residuals(X, y, group)
     else
-         get_residuals(X, y)
+        out <- get_residuals(X, y)
+    return as.vector(out)
 }

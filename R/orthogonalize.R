@@ -24,5 +24,5 @@ orthogonalize <- function(formula, data, group = NULL) {
         out <- get_group_residuals(X, y, group)
     else
         out <- get_residuals(X, y)
-    return as.vector(out)
+    return(as.vector(out))
 }

@@ -7,7 +7,7 @@
 using namespace Rcpp;
 
 // get_residuals
-arma::colvec get_residuals(const arma::mat& X, const arma::colvec& y);
+arma::vec get_residuals(const arma::mat& X, const arma::colvec& y);
 RcppExport SEXP _orthogonalize_get_residuals(SEXP XSEXP, SEXP ySEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -19,7 +19,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // get_group_residuals
-arma::colvec get_group_residuals(const arma::mat& X, const arma::vec& y, const arma::ivec& GroupVec);
+arma::vec get_group_residuals(const arma::mat& X, const arma::vec& y, const arma::ivec& GroupVec);
 RcppExport SEXP _orthogonalize_get_group_residuals(SEXP XSEXP, SEXP ySEXP, SEXP GroupVecSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;

@@ -1,6 +1,6 @@
 Package: orthogonalize
 Type: Package
-Title: Simple orthogonalization 
+Title: Simple covariate residualization  
 Version: 1.0
 Date: 2018-10-16
 Author: Pavel Panko

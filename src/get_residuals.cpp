@@ -1,10 +1,15 @@
+// Title:    Orthgonalization function back end 
+// Author:   Pavel Panko
+// Created:  2018-OCT-16
+// Modified: 2018-DEC-07
+
 #include <RcppArmadillo.h>
 #include <Rcpp.h>
 
 // [[Rcpp::depends(RcppArmadillo)]]
 
 // [[Rcpp::export]]
-arma::vec get_residuals( const arma::mat& X, const arma::colvec& y )
+arma::vec get_residuals( const arma::mat& X, const arma::colvec& y, const int intercept )
 {
 
   // define coefficients using arma solver 
@@ -13,12 +18,22 @@ arma::vec get_residuals( const arma::mat& X, const arma::colvec& y )
   // define residuals as difference between y and fitted
   arma::vec resid = y - X*coef;
 
-  return resid + coef[0]; 
+  // if specified, add intercept to returned residuals
+  if(intercept == 1) {
+
+    return resid + coef[0];
+    
+    // otherwise, return only the residuals 
+  } else if(intercept == 0) {
+    
+    return resid;
+      
+  } // END "resid" control structure 
   
 } // END "get_residuals" function
 
 // [[Rcpp::export]]
-arma::vec get_group_residuals( const arma::mat& X, const arma::vec& y, const arma::ivec& GroupVec )
+arma::vec get_group_residuals( const arma::mat& X, const arma::vec& y, const arma::ivec& GroupVec, const int intercept )
 {
 
   // define container object for residuals 
@@ -34,7 +49,7 @@ arma::vec get_group_residuals( const arma::mat& X, const arma::vec& y, const arm
     arma::uvec GroupObs = find(GroupVec == UnqGroup[j]);
 
     // calculate group-specific residuals 
-    ResidVec.elem(GroupObs) = get_residuals(X.rows(GroupObs), y(GroupObs));
+    ResidVec.elem(GroupObs) = get_residuals(X.rows(GroupObs), y(GroupObs), intercept);
     
   } // END "grouping" loop
   

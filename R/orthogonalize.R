@@ -1,15 +1,11 @@
 ### Title:    Orthgonalization function front end 
 ### Author:   Pavel Panko
 ### Created:  2018-OCT-16
-### Modified: 2018-OCT-16
+### Modified: 2018-DEC-07
 
-###
-### 1. Heading  
-###
-
-orthogonalize <- function(formula, data, group = NULL) {
+orthogonalize <- function(formula, data, intercept = FALSE, group = NULL) {
     mf <- match.call()
-    m <- match(c("formula", "data", "group"), names(mf), 0L)
+    m <- match(c("formula", "data", "group", "intercept"), names(mf), 0L)
     ##
     mf <- mf[c(1L, m)]
     mf[[1L]] <- quote(stats::model.frame)
@@ -21,8 +17,8 @@ orthogonalize <- function(formula, data, group = NULL) {
     group <- as.integer(group)
     ##
     if(length(group))
-        out <- get_group_residuals(X, y, group)
+        out <- get_group_residuals(X, y, group, as.integer(intercept))
     else
-        out <- get_residuals(X, y)
+        out <- get_residuals(X, y, as.integer(intercept))
     return(as.vector(out))
 }

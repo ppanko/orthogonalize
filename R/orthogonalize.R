@@ -7,7 +7,7 @@ orthogonalize <- function(formula, data, intercept = FALSE, group = NULL) {
     mf <- match.call()
     m <- match(c("formula", "data", "group", "intercept"), names(mf), 0L)
     ##
-    if(class(intercept) =! "logical") {
+    if(class(intercept) != "logical") {
         stop("intercept argument must be TRUE or FALSE")
     }
     ##

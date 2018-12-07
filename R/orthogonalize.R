@@ -7,6 +7,10 @@ orthogonalize <- function(formula, data, intercept = FALSE, group = NULL) {
     mf <- match.call()
     m <- match(c("formula", "data", "group", "intercept"), names(mf), 0L)
     ##
+    if(class(intercept) =! "logical") {
+        stop("intercept argument must be TRUE or FALSE")
+    }
+    ##
     mf <- mf[c(1L, m)]
     mf[[1L]] <- quote(stats::model.frame)
     mf <- eval(mf, parent.frame())

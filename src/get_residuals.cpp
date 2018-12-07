@@ -19,16 +19,7 @@ arma::vec get_residuals( const arma::mat& X, const arma::colvec& y, const int in
   arma::vec resid = y - X*coef;
 
   // if specified, add intercept to returned residuals
-  if(intercept == 1) {
-
-    return resid + coef[0];
-    
-    // otherwise, return only the residuals 
-  } else if(intercept == 0) {
-    
-    return resid;
-      
-  } // END "resid" control structure 
+  return resid + coef[0]*intercept;
   
 } // END "get_residuals" function
 

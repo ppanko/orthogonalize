@@ -5,7 +5,7 @@
 
 orthogonalize <- function(formula, data, intercept = FALSE, group = NULL) {
     ##
-    if(class(formula) != "character" | class(formula != "formula")){
+    if(class(formula) != "character" | class(formula) != "formula"){
         stop("provide the `formula` as a `formula` or `character` class")
     }
     if(class(data) != "data.frame") {

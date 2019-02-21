@@ -1,28 +1,41 @@
 ### Title:    Orthgonalization function front end 
 ### Author:   Pavel Panko
 ### Created:  2018-OCT-16
-### Modified: 2018-DEC-07
+### Modified: 2019-FEB-21
 
 orthogonalize <- function(formula, data, intercept = FALSE, group = NULL) {
-    mf <- match.call()
-    m <- match(c("formula", "data", "group", "intercept"), names(mf), 0L)
+    ##
+    if(class(formula) != "character" | class(formula != "formula")){
+        stop("provide the `formula` as a `formula` or `character` class")
+    }
+    if(class(data) != "data.frame") {
+        stop("provide the `data` as a `data.frame` class")
+    }
     ##
     if(class(intercept) != "logical") {
         stop("intercept argument must be TRUE or FALSE")
     }
+    if(!is.null(group)) {
+        if(!is.atomic(group)) {
+            stop("group must be a vector containing the grouping variable or the name of a grouping variable in the data")
+        } else if(is.character(group)) {
+            groupVec <- as.integer(data[[group]])
+            data <- data[names(data) != group]
+        } else if(is.factor(group) | is.numeric(group)) {
+            group <- as.integer(group)
+        }
+    }
     ##
-    mf <- mf[c(1L, m)]
-    mf[[1L]] <- quote(stats::model.frame)
-    mf <- eval(mf, parent.frame())
+    mf <- model.frame(formula, data)
     mt <- attr(mf, "terms")
     ##
     y <- model.response(mf, "numeric")
     X <- model.matrix(mt, mf)
-    group <- as.integer(group)
     ##
-    if(length(group))
+    if(!is.null(group)) {
         out <- get_group_residuals(X, y, group, as.integer(intercept))
-    else
+    } else {
         out <- get_residuals(X, y, as.integer(intercept))
+    }
     return(as.vector(out))
 }

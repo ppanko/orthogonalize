@@ -22,18 +22,18 @@ orthogonalize <- function(formula, data, intercept = FALSE, group = NULL) {
             groupVec <- as.integer(data[[group]])
             data <- data[names(data) != group]
         } else if(is.factor(group) | is.numeric(group)) {
-            group <- as.integer(group)
+            groupVec <- as.integer(group)
         }
     }
     ##
-    mf <- model.frame(formula, data)
+    mf <- stats::model.frame(formula, data)
     mt <- attr(mf, "terms")
     ##
     y <- model.response(mf, "numeric")
     X <- model.matrix(mt, mf)
     ##
     if(!is.null(group)) {
-        out <- get_group_residuals(X, y, group, as.integer(intercept))
+        out <- get_group_residuals(X, y, groupVec, as.integer(intercept))
     } else {
         out <- get_residuals(X, y, as.integer(intercept))
     }

@@ -7,7 +7,7 @@ Author: Pavel Panko
 Maintainer: Pavel Panko <pavel.panko@ttu.edu>
 Description: Residualize an outcome variable based on a predictor set. 
 License: GPL-3
-Imports: Rcpp (>= 0.12.18)
+Imports: Rcpp (>= 0.12.18), RcppArmadillo
 LinkingTo: Rcpp, RcppArmadillo
 RoxygenNote: 6.1.1
 Suggests: testthat, devtools

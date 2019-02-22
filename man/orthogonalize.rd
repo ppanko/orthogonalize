@@ -22,7 +22,7 @@ orthogonalize(formula, data, intercept = FALSE, group = NULL)
   \item{intercept}{
 	a \code{"logical"} value indicating whether or not to 
 	add the intercept term estimated by the regression model to the
-	extracted residuals. Defaults to FALSE.
+	extracted residuals in the return object. Defaults to FALSE.
   }
   \item{group}{
 	an optional \code{"numeric"} or \code{"factor"} vector that

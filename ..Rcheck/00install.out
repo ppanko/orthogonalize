@@ -1,0 +1,13 @@
+* installing *source* package ‘orthogonalize’ ...
+** libs
+g++ -std=gnu++11 -I"/usr/include/R/" -DNDEBUG  -I"/home/pavel/R/x86_64-pc-linux-gnu-library/3.5/Rcpp/include" -I"/home/pavel/R/x86_64-pc-linux-gnu-library/3.5/RcppArmadillo/include" -D_FORTIFY_SOURCE=2  -fopenmp  -fpic  -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -fno-plt -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++11 -I"/usr/include/R/" -DNDEBUG  -I"/home/pavel/R/x86_64-pc-linux-gnu-library/3.5/Rcpp/include" -I"/home/pavel/R/x86_64-pc-linux-gnu-library/3.5/RcppArmadillo/include" -D_FORTIFY_SOURCE=2  -fopenmp  -fpic  -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -fno-plt -c get_residuals.cpp -o get_residuals.o
+g++ -std=gnu++11 -shared -L/usr/lib64/R/lib -Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now -o orthogonalize.so RcppExports.o get_residuals.o -fopenmp -llapack -lblas -lgfortran -lm -lquadmath -L/usr/lib64/R/lib -lR
+installing to /home/pavel/MEGA/gitHub/orthogonalize/..Rcheck/orthogonalize/libs
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+* DONE (orthogonalize)

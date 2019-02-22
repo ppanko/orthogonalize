@@ -20,9 +20,9 @@ orthogonalize(formula, data, intercept = FALSE, group = NULL)
 	a \code{"data.frame"} object containing the data set.  
   }
   \item{intercept}{
-	a \code{"logical"} value indicating whether or not to include an
-	intercept term in the linear regression model during
-	residualization. Defaults to FALSE.
+	a \code{"logical"} value indicating whether or not to 
+	add the intercept term estimated by the regression model to the
+	extracted residuals. Defaults to FALSE.
   }
   \item{group}{
 	an optional \code{"numeric"} or \code{"factor"} vector that

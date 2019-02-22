@@ -1,6 +1,14 @@
 language: r
+
 r:
   - oldrel
   - release
   - devel
-sudo: false 
+
+sudo: false
+
+r_packages:
+  - covr
+
+after_success:
+  - Rscript -e 'library(covr); codecov()'

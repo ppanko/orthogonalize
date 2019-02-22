@@ -1,0 +1,241 @@
+* using log directory ‘/home/pavel/MEGA/gitHub/orthogonalize/..Rcheck’
+* using R version 3.5.2 (2018-12-20)
+* using platform: x86_64-pc-linux-gnu (64-bit)
+* using session charset: UTF-8
+* checking for file ‘./DESCRIPTION’ ... OK
+* checking extension type ... Package
+* this is package ‘orthogonalize’ version ‘1.1’
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... WARNING
+Subdirectory ‘orthogonalize/src’ contains apparent object files/libraries
+  RcppExports.o get_residuals.o orthogonalize.so
+Object files/libraries should not be included in a source package.
+* checking if there is a namespace ... OK
+* checking for executable files ... WARNING
+Found the following executable files:
+  .git/objects/02/bca7053701fb670993a76751017e3e89c2ca38
+  .git/objects/05/29ebf931ed08ea0e242bb2d46f626aef328446
+  .git/objects/09/f170ca98ea500052e078e42c9c3f95e9453b3e
+  .git/objects/09/fd0335564cc5204cbb9fd0913e701cc24ea91b
+  .git/objects/0a/f633ad483c66c7b88c8879ee3a9395e2a223c4
+  .git/objects/0b/b21da34817fa7818b63421daa9af8021ed7b78
+  .git/objects/0e/cbc73d8038023f22fa8df44e723c72b052a33e
+  .git/objects/0f/ad739fc741e73c5970d56e9905004021fcfd47
+  .git/objects/10/cfc917cea989aac540ea868fabd0f4c30f2a35
+  .git/objects/12/910a1964c2d3f06a7458c18dfd3f9f8808b207
+  .git/objects/18/c94b643c8ed42278470b96ee7591c017608e57
+  .git/objects/1c/de15b8c4258c009deeff98c4a8b105d4e7e38f
+  .git/objects/1e/968e9851d3a5d19a75db360ef3aa7a0f94245f
+  .git/objects/21/5ac6fd7032e238b53e14a6b049be0a9da965c1
+  .git/objects/21/c7e478c0032c6c4b2e14e117a9a62a6161bac7
+  .git/objects/29/2fd08c5087fae2d40cb6e7df3661c86a07f3aa
+  .git/objects/29/60e96bf88ee3d0c8166ad4b00dc46f4857bc32
+  .git/objects/2b/6f2a2f8ee26a6d039d3ef516c4ee0b27851dbc
+  .git/objects/2c/83fb7c24738bac81aeb3aa46227cc30d34ecbe
+  .git/objects/2f/3f074b5791fe2d03ba79ca4622ba0bab26e4c1
+  .git/objects/34/a60eb75f035cd1b337c09060387eb21a5b727b
+  .git/objects/38/33f5d25865c5814753c12326f94c6bacfa19de
+  .git/objects/3d/1386441ae5575641de1aef8bb8eb35997eaeae
+  .git/objects/3f/1b6fa6ed6101da48d6188e54ea0764d613d601
+  .git/objects/3f/a5acc3f7ab9c5b6b47ba9c321a2c224754b69f
+  .git/objects/41/591306d33269a7d645d71ef7d582efdd9f6cc7
+  .git/objects/45/9ae87a3269c07a0f6c5dd79be881cfc9617e59
+  .git/objects/47/4bea89d06badb282805f99ff940a6318671776
+  .git/objects/49/049610a368c1e9d2dff586d3ff7f06d2019279
+  .git/objects/4a/d1aeb489d90ae7ad1ee91aa59c3331aedd5cd7
+  .git/objects/4b/44afd37fcdeff02442235cb727add70313745f
+  .git/objects/4b/c1ba3e34c3755fc5dd0b99c6e3da069f9ba41b
+  .git/objects/4d/1d8814cade79b76583661e1fd90ad03053a7bf
+  .git/objects/4e/23ea225c1e4e6b1138884037808bf580664063
+  .git/objects/4e/9f23be8fe61c3274b66db6409b62b54ad4814e
+  .git/objects/4f/169f5e473e5102ed6a3fe6d730e141ad00b9e6
+  .git/objects/53/9f0b887e0c9b0678255000a7f5caac8edbcd3e
+  .git/objects/53/e49f7192ece3bf8219a6dbea183992327d9566
+  .git/objects/54/6c6ada2cc6c0f29c1192125ef1f262833bd8b3
+  .git/objects/54/927770a5d63cf7895388c71ea32b103ff69283
+  .git/objects/55/de3c459ad6afb493d807f74e38e5fe96923ef0
+  .git/objects/5a/4bac14f335df224c0b3beae5a5cea0b9069148
+  .git/objects/5c/41a5c2e9bd425fd3508c0c57a62d5dc2a3f554
+  .git/objects/5c/78eea75cb697f6dad1f48440807db5afbaa4fd
+  .git/objects/5d/5c1cadc383e6b4b1ef23e6ca75451bfe97af84
+  .git/objects/5d/6cad18dc20c83906f65074bc096d622ec64c50
+  .git/objects/5d/d292bd1a74274a1012bbc6211e291d3ae29f6d
+  .git/objects/60/71cf7a125c663ad5ad454417c86852a915cda7
+  .git/objects/60/a97443e462acdb42f46678818aa6114f64c0b8
+  .git/objects/60/f425aa1c8ccc17ea57952719143534ee3617fb
+  .git/objects/64/1bc0734694720296bf5273f81aa28b6d45181b
+  .git/objects/67/fc718575fe8a12705e7849b3f1f963da0cd202
+  .git/objects/68/1af53198d7d6cd8f0a877f7aab137864817de4
+  .git/objects/6a/9a3540fbac5fdd7ed1cef548799af2db388044
+  .git/objects/6d/452f4018d06ed765e843e9de1d3f7b84406e06
+  .git/objects/6e/22ae57a64824635013c50c732bd92f4cd2865e
+  .git/objects/6e/b7704b417bf97196686b51e93d9988babd0640
+  .git/objects/70/e77084644871912134f527b9d8a3f148e7cbd8
+  .git/objects/79/5ac3e7b0356cbb116736c6d4d7cb306924d0f9
+  .git/objects/7b/4d288e86d240216ad49b74134272edad6c239f
+  .git/objects/7b/c3a968abbf6bb29463d982e2ea3f212293eee1
+  .git/objects/7c/c1f0a0fbaef1b6fe232054bbea02e1b68acb86
+  .git/objects/7d/11c594a3ec3d0c5b53bf89781a86d2f65ee750
+  .git/objects/7d/6665b59dafe1c0e069934336dc2e81b1658314
+  .git/objects/7d/a9c8cab8b4339d33bd5a654013ea6756468db4
+  .git/objects/7e/093ea9c86788c1e58e622f1e44de443c9aca41
+  .git/objects/7e/1bb9d7a44c6d76932879e93fcf6eed1e11267e
+  .git/objects/7e/e36db8505c66228070b2b7b47b0f3836252796
+  .git/objects/7f/2f556155241bfbc00d21795e4b13c0e1fca6dd
+  .git/objects/80/b6e84af5bc6129cee2983705080b8db4789fa7
+  .git/objects/83/199c8781fef3444d92818a7bac5b77289f7d66
+  .git/objects/83/23c5b6dd73cda24bb702e7dcf1ed0b031b5f37
+  .git/objects/84/1141802e91f8d0f12b4e344976004b0f92bc5e
+  .git/objects/85/97ffc305a7c34448d0f017e439f297ae9fc88f
+  .git/objects/86/ba91702587198eea7a90e0bef1f3c4f69c6176
+  .git/objects/88/b1a174f5ee626213c333af1887be1c1117525b
+  .git/objects/89/113d8d33afe20d85b033c26e9d4f2914e8fc37
+  .git/objects/89/65f3c2ff2a8008567c70e8dedda847020bdf19
+  .git/objects/8b/0e79e2c296b86f404ddc3b862577247a2ead49
+  .git/objects/8c/f7a6412764c85dc1c110680cf27a5390f899e5
+  .git/objects/8d/562d93d4e02e0a85ba9c43f2e2fc9fe6d39b9b
+  .git/objects/8e/852d5520daaa06ec1d66450274c29f810093d7
+  .git/objects/8f/c9343913d61b8f0cc58c3fb82531335008d16e
+  .git/objects/90/006fcd4e303bc5dc49de4541fea90e61e12189
+  .git/objects/90/8d5fe2109c8d305eed153caf242b6e39c2fd20
+  .git/objects/91/3ff1a2773590503f0676f141046fcce6b7f11d
+  .git/objects/96/5fc69ad1eec562a4e479e88be9ed5f0071fb04
+  .git/objects/96/843d1b4a5fde1335fafe0a3478a4115cc8d040
+  .git/objects/98/5173f6901e747cc435d048da5e2e8147013cb3
+  .git/objects/99/86a9670abd29e3b5437162335350e1e5b8603e
+  .git/objects/9b/52c8c108802a9ab1d1b8ee139d54991dc5663b
+  .git/objects/9d/41f396741e0b10a9d8bedfbbf8592a5cc8476f
+  .git/objects/a0/07db5005e5e5b5afa13a322bf0460c0f42fb1f
+  .git/objects/a3/1eecfe10970e18e0a9be131b0725ea2cffd23c
+  .git/objects/a5/7a2b0ec19cf1ebb6e4960eed63b6489c19e49f
+  .git/objects/aa/9a767037eda557f6a6ef77d807915d485c679d
+  .git/objects/b0/2eca9ade7b7960f9e2792ef33fac24b932adf3
+  .git/objects/b1/f8497d52cb38a49f83d9181cd8b549d25c79c6
+  .git/objects/b2/41ee7f855aed6167e592ff3a34701555917970
+  .git/objects/b3/45f2e11012840d48719c8b17f0a6d9e82197b2
+  .git/objects/c0/a53023ea1e1e627c18eb2ee63a5937a85f8afc
+  .git/objects/c1/331f1bc03370d62e3ce5f56ac1d792730dda20
+  .git/objects/c3/e6cfb0e89b8cedab14677c0237c61b41ddac5e
+  .git/objects/c6/581eb522769d004392f958864d1d1b4b90a29c
+  .git/objects/c7/3753acb354ce823163ee6ea651de9e26a5a268
+  .git/objects/c9/b42d0c4f4b3c485a50f07f5840246bc910a7c0
+  .git/objects/ca/fe662b5bdd7032cb7bac13971f1c74df206199
+  .git/objects/cb/c5d6c5bf2366e6828cd705418f9bb9e2a92776
+  .git/objects/cd/02103c8d077788d8ba433243683e0d33110258
+  .git/objects/cf/e04ecf8e39e0785303adc26909a5048cd601e5
+  .git/objects/d2/8e1807470c627f944dd6732bc58d459557f53d
+  .git/objects/d2/f1bf85bb04c10cf68be3bd9bd66cffbcfd15f7
+  .git/objects/d3/e3f4143c50ad561945e7c34e6fe45de229b498
+  .git/objects/d5/821050db47afcbfe9f3e9bf8ac31df897354ed
+  .git/objects/dd/66d0bd32744fb4d7b2f86f08be5f91f590df01
+  .git/objects/de/d47c217c8a5bd26aa5d10a1bf12593fdeb9cb8
+  .git/objects/e1/39e476d22ad1edae55188a01abf6af8f508a8f
+  .git/objects/e1/8a2720b77f9d29d3a37ddd8ddfb48d5e989fb6
+  .git/objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+  .git/objects/e7/ebc81848fe48e534413e0395e57bbf218907fb
+  .git/objects/eb/e5057e24dc4e54fb86501cc4e23c37c23710b6
+  .git/objects/ec/e7206424cdd9cacb1984a7056d466c0deb9df8
+  .git/objects/ed/c9fd8fa4969e6d1841a9f46e892140b764a055
+  .git/objects/ef/7fd1ecca72b8b124770b584d3094ab9937260e
+  .git/objects/ef/b01b14c58885e51e789b803664387cdc5a9f42
+  .git/objects/f1/4704888050260df7256b29144cac1aeb3678f1
+  .git/objects/f5/4f347bee8fa83d2bce4bc96a6a0f1fd2de1ee4
+  .git/objects/f6/7db9c0a9042c8e80a86962c7168671fe30c773
+  .git/objects/f7/c9073931c817e748c8198d269c100eacbf239f
+  .git/objects/f8/29ec4d861ca7f8ab8079e98b334b4539bf7ee5
+  .git/objects/f8/c2523b9eed84c6b6d7c036d813d0bf686e9e65
+  .git/objects/f9/81e7cd7dfc1e85815628108a07cc8bbf24666b
+  .git/objects/f9/a691cf48d97e2f3779bfad325b6c21e3ec0790
+  .git/objects/fa/672d58f1e83b43b9fd1a36868746a0de72919f
+  .git/objects/fc/dc24fe79446967779d653d21271b4197b8abc3
+Source packages should not contain undeclared executable files.
+See section ‘Package structure’ in the ‘Writing R Extensions’ manual.
+* checking for hidden files and directories ... NOTE
+Found the following hidden files and directories:
+  .travis.yml
+  ..Rcheck
+  .git
+These were most likely included in error. See section ‘Package
+structure’ in the ‘Writing R Extensions’ manual.
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘orthogonalize’ can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... NOTE
+Checking should be performed on sources prepared by ‘R CMD build’.
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... WARNING
+Found the following directory with the name of a check directory:
+  ./..Rcheck
+Most likely, these were included erroneously.
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... OK
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking line endings in C/C++/Fortran sources/headers ... OK
+* checking line endings in Makefiles ... OK
+* checking compilation flags in Makevars ... OK
+* checking for GNU extensions in Makefiles ... OK
+* checking for portable use of $(BLAS_LIBS) and $(LAPACK_LIBS) ... OK
+* checking compiled code ... OK
+* checking examples ... OK
+* checking for unstated dependencies in ‘tests’ ... WARNING
+'library' or 'require' call not declared from: ‘devtools’
+* checking tests ... ERROR
+  Running ‘testthat.R’
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  5: lmResid(formula = formula, data = data[selectedRows, ], intercept = intercept)
+  6: lm(...)
+  7: eval(mf, parent.frame())
+  8: eval(mf, parent.frame())
+  9: stats::model.frame(formula = ..1, data = ..2, drop.unused.levels = TRUE)
+  10: model.frame.default(formula = ..1, data = ..2, drop.unused.levels = TRUE)
+  11: is.data.frame(data)
+  
+  ══ testthat results  ═══════════════════════════════════════════════════════════
+  OK: 20 SKIPPED: 0 FAILED: 2
+  1. Error: Front-end functionality 
+  2. Error: Front-end functionality 
+  
+  Error: testthat unit tests failed
+  Execution halted
+* checking PDF version of manual ... WARNING
+LaTeX errors when creating PDF version.
+This typically indicates Rd problems.
+LaTeX errors found:
+! LaTeX Error: File `inconsolata.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+! Emergency stop.
+<read *> 
+         
+l.276 ^^M
+         
+!  ==> Fatal error occurred, no output PDF file produced!
+* checking PDF version of manual without hyperrefs or index ... OK
+* DONE
+Status: 1 ERROR, 5 WARNINGs, 2 NOTEs

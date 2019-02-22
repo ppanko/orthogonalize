@@ -1,7 +1,7 @@
 ### Title:    Orthgonalization function front end 
 ### Author:   Pavel Panko
 ### Created:  2018-OCT-16
-### Modified: 2019-FEB-21
+### Modified: 2019-FEB-22
 
 orthogonalize <- function(formula, data, intercept = FALSE, group = NULL) {
     ##
@@ -16,13 +16,15 @@ orthogonalize <- function(formula, data, intercept = FALSE, group = NULL) {
         stop("intercept argument must be TRUE or FALSE")
     }
     if(!is.null(group)) {
-        if(!is.atomic(group)) {
-            stop("group must be a vector containing the grouping variable or the name of a grouping variable in the data")
-        } else if(is.character(group)) {
+        if(!is.atomic(group) && !is.vector(group)) {
+            stop("group must be a vector containing the grouping variable or the name of a single grouping variable in the data")
+        } else if(is.character(group) & length(group) == 1) {
             groupVec <- as.integer(data[[group]])
             data <- data[names(data) != group]
-        } else if(is.factor(group) | is.numeric(group)) {
+        } else if((is.factor(group) | is.numeric(group) | is.character(group)) & length(group) == nrow(data)) {
             groupVec <- as.integer(group)
+        } else {
+            stop("group must be a vector containing the grouping variable or the name of a single grouping variable in the data")
         }
     }
     ##

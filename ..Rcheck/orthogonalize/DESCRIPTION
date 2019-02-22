@@ -1,6 +1,6 @@
 Package: orthogonalize
 Type: Package
-Title: Simple covariate residualization  
+Title: Simple covariate residualization
 Version: 1.1
 Date: 2019-2-21
 Author: Pavel Panko
@@ -9,5 +9,6 @@ Description: Residualize an outcome variable based on a predictor set.
 License: GPL-3
 Imports: Rcpp (>= 0.12.18)
 LinkingTo: Rcpp, RcppArmadillo
-RoxygenNote: 6.1.1
-Suggests: testthat, devtools
+RoxygenNote: 6.1.0
+Suggests: testthat
+Built: R 3.5.2; x86_64-pc-linux-gnu; 2019-02-22 20:31:20 UTC; unix

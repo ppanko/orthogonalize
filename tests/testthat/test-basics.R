@@ -14,4 +14,5 @@ checkFrontEnd()
 
 checkBackEnd()
 
+sanityCheck()
 

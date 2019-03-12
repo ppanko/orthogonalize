@@ -12,7 +12,7 @@ orthogonalize <- function(formula, data, intercept = FALSE, group = NULL) {
     stop("provide the `data` as a `data.frame` class")
   }
   ##
-  if(class(intercept) != "logical") {
+  if(class(intercept) != "logical" & length(intercept) != 1) {
     stop("intercept argument must be TRUE or FALSE")
   }
   if(!is.null(group)) {

@@ -1,4 +1,0 @@
-useDynLib(orthogonalize, .registration=TRUE)
-export(orthogonalize)
-importFrom(Rcpp, evalCpp)
-importFrom("stats", "model.matrix", "model.response")

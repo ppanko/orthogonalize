@@ -1,6 +1,6 @@
 ^\.travis\.yml$
 ^LICENSE\.md$
-^.Rd*
+^.Rd2*
 ^\.github$
 ^README\.md$
 ^\.gitignore$

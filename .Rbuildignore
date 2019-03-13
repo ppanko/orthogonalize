@@ -1,4 +1,10 @@
 ^\.travis\.yml$
 ^LICENSE\.md$
+^.Rd*
 ^\.github$
-^README\.Rmd$.gitignore
+^README\.md$
+^\.gitignore$
+^\.git$
+^\.\.Recheck
+src/*o$
+src/*rds$

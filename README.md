@@ -9,3 +9,9 @@ Install `orthogonalize` in your R session by running the following code:
 ```R
 devtools::install_github("ppanko/orthogonalize")
 ```
+
+TODO: 
+
+* Add multiple outputs 
+* Easier formula parsing 
+* Use S3 methods 

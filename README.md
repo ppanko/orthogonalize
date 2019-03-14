@@ -12,6 +12,9 @@ devtools::install_github("ppanko/orthogonalize")
 
 TODO: 
 
-* Add option to accept multiple outputs 
-* Easier formula parsing 
-* Use S3 methods 
+* orthoMulti - accept multivariate formulas (either as a list or
+  as multiple lhs)
+* Use dynamic dispatch for C++ 
+* Easier formula parsing (with S3)
+* Add RcppParallel option!
+

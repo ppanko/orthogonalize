@@ -16,4 +16,4 @@ TODO:
   as multiple lhs)
 * Easier formula parsing (with S3)
 * Add RcppParallel option!
-
+* Alternative link function support

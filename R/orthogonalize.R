@@ -1,7 +1,7 @@
 ### Title:    Orthgonalization function front end 
 ### Author:   Pavel Panko
 ### Created:  2018-OCT-16
-### Modified: 2019-MAR-12
+### Modified: 2019-MAR-14
 
 orthogonalize <- function(formula, data, intercept = FALSE, group = NULL) {
   ##
@@ -26,6 +26,8 @@ orthogonalize <- function(formula, data, intercept = FALSE, group = NULL) {
     } else {
       stop("group must be a vector containing the grouping variable or the name of a single grouping variable in the data")
     }
+  } else {
+    groupVec <- FALSE
   }
   ##
   mf <- stats::model.frame(formula, data)
@@ -34,10 +36,7 @@ orthogonalize <- function(formula, data, intercept = FALSE, group = NULL) {
   y <- model.response(mf, "numeric")
   X <- model.matrix(mt, mf)
   ##
-  if(!is.null(group)) {
-    out <- get_group_residuals(X, y, groupVec, as.integer(intercept))
-  } else {
-    out <- get_residuals(X, y, as.integer(intercept))
-  }
+  out <- get_residuals(X, y, as.integer(intercept), groupVec)
+  ##
   return(as.vector(out))
 }

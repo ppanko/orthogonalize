@@ -7,36 +7,22 @@
 using namespace Rcpp;
 
 // get_residuals
-arma::vec get_residuals(const arma::mat& X, const arma::colvec& y, const int intercept);
-RcppExport SEXP _orthogonalize_get_residuals(SEXP XSEXP, SEXP ySEXP, SEXP interceptSEXP) {
+arma::vec get_residuals(const Rcpp::NumericMatrix& X, const Rcpp::NumericVector y, const int intercept, SEXP GroupVec);
+RcppExport SEXP _orthogonalize_get_residuals(SEXP XSEXP, SEXP ySEXP, SEXP interceptSEXP, SEXP GroupVecSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::mat& >::type X(XSEXP);
-    Rcpp::traits::input_parameter< const arma::colvec& >::type y(ySEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericMatrix& >::type X(XSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type y(ySEXP);
     Rcpp::traits::input_parameter< const int >::type intercept(interceptSEXP);
-    rcpp_result_gen = Rcpp::wrap(get_residuals(X, y, intercept));
-    return rcpp_result_gen;
-END_RCPP
-}
-// get_group_residuals
-arma::vec get_group_residuals(const arma::mat& X, const arma::vec& y, const arma::ivec& GroupVec, const int intercept);
-RcppExport SEXP _orthogonalize_get_group_residuals(SEXP XSEXP, SEXP ySEXP, SEXP GroupVecSEXP, SEXP interceptSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::mat& >::type X(XSEXP);
-    Rcpp::traits::input_parameter< const arma::vec& >::type y(ySEXP);
-    Rcpp::traits::input_parameter< const arma::ivec& >::type GroupVec(GroupVecSEXP);
-    Rcpp::traits::input_parameter< const int >::type intercept(interceptSEXP);
-    rcpp_result_gen = Rcpp::wrap(get_group_residuals(X, y, GroupVec, intercept));
+    Rcpp::traits::input_parameter< SEXP >::type GroupVec(GroupVecSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_residuals(X, y, intercept, GroupVec));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_orthogonalize_get_residuals", (DL_FUNC) &_orthogonalize_get_residuals, 3},
-    {"_orthogonalize_get_group_residuals", (DL_FUNC) &_orthogonalize_get_group_residuals, 4},
+    {"_orthogonalize_get_residuals", (DL_FUNC) &_orthogonalize_get_residuals, 4},
     {NULL, NULL, 0}
 };
 

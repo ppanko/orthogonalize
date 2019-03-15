@@ -14,7 +14,6 @@ TODO:
 
 * orthoMulti - accept multivariate formulas (either as a list or
   as multiple lhs)
-* Use dynamic dispatch for C++ 
 * Easier formula parsing (with S3)
 * Add RcppParallel option!
 

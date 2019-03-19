@@ -14,5 +14,4 @@ checkUnivariateFrontEnd()
 checkUnivariateBackEnd()
 checkMultivariateFrontEnd()
 checkMultivariateBackEnd()
-
-
+checkUnload()

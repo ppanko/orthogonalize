@@ -79,7 +79,7 @@ widthPrimeMat <- orthogonalize(
 &nbsp;
 
 For a more modular apporach, the intercept and group arguments in the
-multi-formula case can either take on (the default) single values as in 
+multi-formula case can either take on single values (the default) as in 
 the example above or be tweaked to suit user requirements:
 
 ```R

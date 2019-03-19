@@ -6,23 +6,38 @@
 
 using namespace Rcpp;
 
-// get_residuals
-arma::vec get_residuals(const Rcpp::NumericMatrix& X, const Rcpp::NumericVector y, const int intercept, SEXP GroupVec);
-RcppExport SEXP _orthogonalize_get_residuals(SEXP XSEXP, SEXP ySEXP, SEXP interceptSEXP, SEXP GroupVecSEXP) {
+// get_residuals_multi
+arma::mat get_residuals_multi(const Rcpp::List xList, const Rcpp::List yList, const Rcpp::IntegerVector intercept, const Rcpp::List GroupList);
+RcppExport SEXP _orthogonalize_get_residuals_multi(SEXP xListSEXP, SEXP yListSEXP, SEXP interceptSEXP, SEXP GroupListSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const Rcpp::List >::type xList(xListSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::List >::type yList(yListSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::IntegerVector >::type intercept(interceptSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::List >::type GroupList(GroupListSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_residuals_multi(xList, yList, intercept, GroupList));
+    return rcpp_result_gen;
+END_RCPP
+}
+// get_residuals_single
+arma::vec get_residuals_single(const Rcpp::NumericMatrix& X, const Rcpp::NumericVector y, const int intercept, Rcpp::IntegerVector GroupVec);
+RcppExport SEXP _orthogonalize_get_residuals_single(SEXP XSEXP, SEXP ySEXP, SEXP interceptSEXP, SEXP GroupVecSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const Rcpp::NumericMatrix& >::type X(XSEXP);
     Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type y(ySEXP);
     Rcpp::traits::input_parameter< const int >::type intercept(interceptSEXP);
-    Rcpp::traits::input_parameter< SEXP >::type GroupVec(GroupVecSEXP);
-    rcpp_result_gen = Rcpp::wrap(get_residuals(X, y, intercept, GroupVec));
+    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type GroupVec(GroupVecSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_residuals_single(X, y, intercept, GroupVec));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_orthogonalize_get_residuals", (DL_FUNC) &_orthogonalize_get_residuals, 4},
+    {"_orthogonalize_get_residuals_multi", (DL_FUNC) &_orthogonalize_get_residuals_multi, 4},
+    {"_orthogonalize_get_residuals_single", (DL_FUNC) &_orthogonalize_get_residuals_single, 4},
     {NULL, NULL, 0}
 };
 

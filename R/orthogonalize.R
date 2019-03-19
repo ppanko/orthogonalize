@@ -1,42 +1,55 @@
-### Title:    Orthgonalization function front end 
+### Title:    orthogonalize: main
 ### Author:   Pavel Panko
-### Created:  2018-OCT-16
-### Modified: 2019-MAR-14
+### Created:  2019-MAR-17
+### Modified: 2019-MAR-17
 
-orthogonalize <- function(formula, data, intercept = FALSE, group = NULL) {
-  ##
-  if(class(formula) != "character" & class(formula) != "formula"){
-    stop("provide the `formula` as a `formula` or `character` class")
-  }
-  if(class(data) != "data.frame") {
-    stop("provide the `data` as a `data.frame` class")
-  }
-  ##
-  if(class(intercept) != "logical" | length(intercept) != 1) {
-    stop("intercept argument must be TRUE or FALSE")
-  }
-  if(!is.null(group)) {
-    if(!is.atomic(group) & !is.vector(group)) {
-      stop("group must be a vector containing the grouping variable or the name of a single grouping variable in the data")
-    } else if(is.character(group) & length(group) == 1) {
-      groupVec <- as.integer(data[[group]])
-      data <- data[names(data) != group]
-    } else if((is.factor(group) | is.numeric(group) | is.character(group)) & length(group) == nrow(data)) {
-      groupVec <- as.integer(group)
-    } else {
-      stop("group must be a vector containing the grouping variable or the name of a single grouping variable in the data")
-    }
-  } else {
-    groupVec <- FALSE
-  }
-  ##
-  mf <- stats::model.frame(formula, data)
-  mt <- attr(mf, "terms")
-  ##
-  y <- model.response(mf, "numeric")
-  X <- model.matrix(mt, mf)
-  ##
-  out <- get_residuals(X, y, as.integer(intercept), groupVec)
-  ##
-  return(as.vector(out))
+.orthogonalize <- function(X, ...) {
+  UseMethod(".orthogonalize", X)
 }
+
+.orthogonalize.matrix <- function(X, y, intercept, groupVec) {
+  get_residuals_single(X, y, as.integer(intercept), groupVec)
+}
+
+.orthogonalize.list <- function(X, y, intercept, groupVec) {
+  get_residuals_multi(X, y, as.integer(intercept), groupVec)
+}
+orthogonalize <- function(formula, data, intercept = FALSE, group = "", simplify = FALSE) {
+  ##
+  if (!is.data.frame(data)) {
+    throwError("badData")
+  }     
+  if (!is.formula(formula) && !is.list(formula)) {
+    throwError("badFormula")
+  }
+  if(!is.logical(intercept)) {
+    throwError("badIntercept")
+  }
+  if(!is.character(group)) {
+    throwError("badGroup")
+  }
+  ##
+  .checkTerms(formula, data, intercept, group)
+  ##
+  termList <- .makeModel(
+    formula   = formula,
+    data      = data,
+    intercept = intercept,
+    group     = group
+  )
+  ##
+  out      <- .orthogonalize(
+    X         = termList$X,
+    y         = termList$y,
+    intercept = termList$intercept,
+    groupVec  = termList$groupVec
+  )
+  ##
+  if(simplify == TRUE) {
+    as.vector(out)
+  } else {
+    colnames(out) <- termList$names
+    out
+  }
+}
+

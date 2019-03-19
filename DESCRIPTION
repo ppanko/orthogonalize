@@ -1,11 +1,14 @@
 Package: orthogonalize
 Type: Package
-Title: Simple covariate residualization  
-Version: 1.2
-Date: 2019-3-14
+Title: Estimate OLS residuals, simply and quickly
+Version: 2.0
+Date: 2019-3-19
 Author: Pavel Panko
 Maintainer: Pavel Panko <pavel.panko@ttu.edu>
-Description: Residualize an outcome variable based on a predictor set. 
+Description:  Provides functionality to create residual scores for a single outcome or a set
+ of outcomes via ordinary least squares (OLS) regression more quickly
+ and conveniently than \code{lm}. The `response` vector produced by this
+ function is "orthogonal" to the variables the predictor set. 
 License: GPL-3 + file LICENSE
 Imports: Rcpp (>= 0.12.18), RcppArmadillo
 LinkingTo: Rcpp, RcppArmadillo

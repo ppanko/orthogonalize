@@ -1,14 +1,9 @@
-// Title:    Orthgonalization function back end 
-// Author:   Pavel Panko
-// Created:  2018-OCT-16
-// Modified: 2019-MAR-14
-
 // [[Rcpp::depends(RcppArmadillo)]]
 #include <RcppArmadillo.h>
 #include <Rcpp.h>
 
-arma::vec calc_residuals( const arma::mat& X, const arma::colvec& y, const int intercept,
-			  const int GroupVec = 0)
+//
+arma::vec calc_residuals_single( const arma::mat& X, const arma::vec& y, const int intercept )
 {
 
   // define coefficients using arma solver 
@@ -22,8 +17,9 @@ arma::vec calc_residuals( const arma::mat& X, const arma::colvec& y, const int i
   
 } // END "calc_residuals_single" function
 
-arma::vec calc_residuals( const arma::mat& X, const arma::vec& y, const int intercept,
-				const arma::ivec& GroupVec )
+//
+arma::vec calc_residuals_multi( const arma::mat& X, const arma::vec& y, const int intercept,
+				       const arma::ivec& GroupVec )
 {
 
   // define container object for residuals 
@@ -39,7 +35,7 @@ arma::vec calc_residuals( const arma::mat& X, const arma::vec& y, const int inte
     arma::uvec GroupObs = find(GroupVec == UnqGroup[j]);
 
     // calculate group-specific residuals 
-    ResidVec.elem(GroupObs) = calc_residuals(X.rows(GroupObs), y(GroupObs), intercept);
+    ResidVec.elem(GroupObs) = calc_residuals_single(X.rows(GroupObs), y(GroupObs), intercept);
     
   } // END "grouping" loop
   
@@ -47,39 +43,67 @@ arma::vec calc_residuals( const arma::mat& X, const arma::vec& y, const int inte
   
 } // END "calc_residuals_group" function 
 
+
+
 // [[Rcpp::export]]
-arma::vec get_residuals( const Rcpp::NumericMatrix& X, const Rcpp::NumericVector y,
-				   const int intercept, SEXP GroupVec )
+arma::mat get_residuals_multi( const Rcpp::List xList, const Rcpp::List yList,
+			       const Rcpp::IntegerVector intercept, const Rcpp::List GroupList)
 {
-  // re-define X and y as arma:: objects 
-  arma::mat X_ = Rcpp::as<arma::mat>(X);
-  arma::vec y_ = Rcpp::as<arma::vec>(y);
+  // 
+  Rcpp::NumericVector tmp_y = yList[1];
+  arma::mat yOut(tmp_y.size(), yList.size());
 
-  // dispatch overloaded function 
-  switch(TYPEOF(GroupVec)) {
+  //
+  for(int j = 0; j < yList.size(); j++) {
+    
+    // re-define X and y as arma:: objects 
+    arma::mat X_ = Rcpp::as<arma::mat>(xList[j]);
+    arma::vec y_ = Rcpp::as<arma::vec>(yList[j]);
+    arma::ivec GV_ = Rcpp::as<arma::ivec>(GroupList[j]);
 
-    // if GroupVec is logical
-    case LGLSXP: {
+    //
+    if(GV_.size() == 0) {
 
       // compute residuals using single group 
-      return calc_residuals(X_, y_, intercept);
-      
-    } // END case - logical GroupVec
+      yOut.col(j) = calc_residuals_single(X_, y_, intercept(j));
 
-    //  If GroupVec is integer
-    case INTSXP: {
-
-      // re-define GroupVec as an arma::ivec
-      arma::ivec GroupVec_ = Rcpp::as<arma::ivec>(GroupVec);
+      //
+    } else  {
 
       // Compute residuals by group
-      return calc_residuals(X_, y_, intercept, GroupVec_);
+      yOut.col(j) = calc_residuals_multi(X_, y_, intercept(j), GV_);
       
     } // END case - integer GroupVec
       
   } // END switch for function dispatch
+  
+  //
+  return yOut;
+  
+} //
 
-  // Not run
-  return y_;
+
+// [[Rcpp::export]]
+arma::vec get_residuals_single( const Rcpp::NumericMatrix& X, const Rcpp::NumericVector y,
+				const int intercept, Rcpp::IntegerVector GroupVec )
+{
+  // re-define X and y as arma:: objects 
+  arma::mat X_ = Rcpp::as<arma::mat>(X);
+  arma::vec y_ = Rcpp::as<arma::vec>(y);
+  arma::ivec GV_ = Rcpp::as<arma::ivec>(GroupVec);
+
+  // dispatch overloaded function 
+  if(GV_.size() == 0) {
+    
+    // compute residuals using single group 
+    return calc_residuals_single(X_, y_, intercept);
+
+    //
+  } else { // END case - logical GroupVec
+    
+    // Compute residuals by group
+    return calc_residuals_multi(X_, y_, intercept, GV_);
+    
+  } // END case - integer GroupVec
   
 } // END "get_residuals" function 

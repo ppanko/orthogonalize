@@ -10,6 +10,16 @@ Install `orthogonalize` in your R session by running the following code:
 devtools::install_github("ppanko/orthogonalize")
 ```
 
+To check the help documentation in R:
+
+```R
+?orthogonalize
+
+## OR
+
+help(orthogonalize)
+```
+
 &nbsp;
 
 ---
@@ -17,7 +27,7 @@ devtools::install_github("ppanko/orthogonalize")
 # Usage
 
 For ease of access, `orthogonalize` provides a formula interface and a
-few sane defaults. Basic functionality can look something like this: 
+few sane defaults. Basic functionality can look like this: 
 
 ```R
 library(orthogonalize)
@@ -112,7 +122,7 @@ widthPrimeMat <- orthogonalize(
 
 ---
 
-If you encounter any bug while using this software or have a
+If you encounter any bugs while using this software or have a
 suggestion, please file an issue or pull request on this page. 
 For more general questions or assistance, please email me at 
 pavel.panko@ttu.edu. 

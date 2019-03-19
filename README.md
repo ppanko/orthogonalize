@@ -71,7 +71,7 @@ widthPrimeMat <- orthogonalize(
   formula   = list(
                 Petal.Width ~ ., 
 		Sepal.Width ~ . 
-	      )
+	      ),
   data      = iris
 )
 ```
@@ -89,7 +89,7 @@ widthPrimeInt <- orthogonalize(
   formula   = list(
                 Petal.Width ~ ., 
 		Sepal.Width ~ . 
-	      )
+	      ),
   data      = iris,
   intercept = c(TRUE, FALSE)
 )
@@ -101,7 +101,7 @@ widthPrimeGrp <- orthogonalize(
   formula   = list(
                 Petal.Width ~ ., 
 		Sepal.Width ~ . 
-	      )
+	      ),
   data      = iris,
   group     = c("", "Species")
 )
@@ -113,7 +113,7 @@ widthPrimeMat <- orthogonalize(
   formula   = list(
                 Petal.Width ~ ., 
 		Sepal.Width ~ . 
-	      )
+	      ),
   data      = iris,
   intercept = c(TRUE, FALSE),
   group     = c("Species", "")

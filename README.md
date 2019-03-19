@@ -9,12 +9,15 @@ Install `orthogonalize` in your R session by running the following code:
 ```R
 devtools::install_github("ppanko/orthogonalize")
 ```
+
+---
+
 # Usage
 
 For ease of access, `orthogonalize` provides a formula interface and a
 few sane defaults. Basic functionality can look something like this: 
 
-```
+```R
 library(orthogonalize)
 
 data(iris)
@@ -27,7 +30,7 @@ petalWidthPrime <- orthogonalize(
 Slightly more complex requirements may call for within-group residuals 
 or residuals offset by the intercept: 
 
-```
+```R
 ## By group 
 pwPrimeGroup <- orthogonalize(
   formula = Petal.Width ~ ., 
@@ -46,13 +49,13 @@ pwPrimeIntercept <- orthogonalize(
 Following the main idea of letting C++ do the work, users can also 
 supply multiple formulas in a list, as opposed to writing loops in R: 
 
-```
+```R
 ## Multiple formulas
 widthPrimeMat <- orthogonalize(
   formula   = list(
                 Petal.Width ~ ., 
-				Sepal.Width ~ . 
-			  )
+		Sepal.Width ~ . 
+	      )
   data      = iris
 )
 ```
@@ -67,8 +70,8 @@ the example above or be tweaked to suit user requirements:
 widthPrimeInt <- orthogonalize(
   formula   = list(
                 Petal.Width ~ ., 
-				Sepal.Width ~ . 
-			  )
+		Sepal.Width ~ . 
+	      )
   data      = iris,
   intercept = c(TRUE, FALSE)
 )
@@ -79,8 +82,8 @@ widthPrimeInt <- orthogonalize(
 widthPrimeGrp <- orthogonalize(
   formula   = list(
                 Petal.Width ~ ., 
-				Sepal.Width ~ . 
-			  )
+		Sepal.Width ~ . 
+	      )
   data      = iris,
   group     = c("", "Species")
 )
@@ -91,8 +94,8 @@ widthPrimeGrp <- orthogonalize(
 widthPrimeMat <- orthogonalize(
   formula   = list(
                 Petal.Width ~ ., 
-				Sepal.Width ~ . 
-			  )
+		Sepal.Width ~ . 
+	      )
   data      = iris,
   intercept = c(TRUE, FALSE),
   group     = c("Species", "")

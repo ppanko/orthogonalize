@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ppanko/orthogonalize.svg?branch=master)](https://travis-ci.org/ppanko/orthogonalize)
+[![Build Status](https://travis-ci.org/ppanko/PcAux.svg?branch=master)](https://travis-ci.org/ppanko/PcAux)
 [![codecov](https://codecov.io/gh/ppanko/orthogonalize/branch/master/graph/badge.svg)](https://codecov.io/gh/ppanko/orthogonalize)
 # orthogonalize
 
